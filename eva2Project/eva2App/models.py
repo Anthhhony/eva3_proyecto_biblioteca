@@ -7,4 +7,9 @@ class DBproyecto(models.Model):
     edad = models.IntegerField()
     correo = models.EmailField()
 
+class Autor(models.Model):
+    nombre = models.CharField(max_length=20)
+    apellido = models.CharField(max_length=20)
+    correo = models.CharField(max_length=50)
+    
 # Create your models here.
