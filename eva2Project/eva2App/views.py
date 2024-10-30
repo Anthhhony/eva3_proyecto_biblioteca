@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from . import forms
-from eva2App.models import DBproyecto
+from eva2App.models import Cliente
 from eva2App.forms import formularioChetado
 
 def registro(request):
-    registro = DBproyecto.objects.all()
+    registro = Cliente.objects.all()
     data = {"registro":registro}
     return render(request, "templatesApp/index.html", data)
 
@@ -13,7 +13,7 @@ def agregar(request):
     if request.method == "POST":
         form = forms.formulario(request.POST)
         if form.is_valid():
-            db = DBproyecto(
+            db = Cliente(
                 rut = form.cleaned_data['rut'],
                 nombre = form.cleaned_data['nombre'],
                 telefono = form.cleaned_data['telefono'],
@@ -25,12 +25,12 @@ def agregar(request):
     return render(request, "templatesApp/agregar.html", data)
 
 def eliminar(request, id):
-    dato = DBproyecto.objects.get(id = id)
+    dato = Cliente.objects.get(id = id)
     dato.delete()
     return redirect("../")
 
 def actualizar(request, id):
-    project = DBproyecto.objects.get(id = id)
+    project = Cliente.objects.get(id = id)
     form = formularioChetado(instance=project)
     if request.method == "POST":
         form = formularioChetado(request.POST, instance=project)
