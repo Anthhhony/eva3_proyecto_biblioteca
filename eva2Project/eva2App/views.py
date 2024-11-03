@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from . import forms
-from eva2App.models import Cliente
+from eva2App.models import Cliente, Autor, Libro
 from eva2App.forms import ClienteForm, AutorForm
 
 def registro(request):
@@ -39,5 +39,47 @@ def actualizar_cliente(request, id):
         return registro(request)
     data = {"form":form}
     return render(request, "templatesApp/agregar.html", data)
+
+def mostrar_autor(request):
+    autores = Autor.objects.all()
+    return render(request, 'templatesApp/autores.html', {'autores':autores})
+
+def agregar_autor(request):
+    titulo = 'Agregar'
+    form = AutorForm()
+    if request.method == 'POST':
+        form= AutorForm(request.POST)
+        if form.is_valid():
+            db = Autor(
+                nombre = form.cleaned_data['nombre'],
+                apellido = form.cleaned_data['apellido'],
+                correo= form.cleaned_data['correo']
+            )
+            db.save()
+        return redirect(mostrar_autor)
+    return render(request, 'templatesApp/form_autor.html', {
+        'form':form,
+        'titulo':titulo
+    })
+
+def actualizar_autor(request,id):
+    titulo = 'Editar'
+    autor = Autor.objects.get(id = id)
+    form = AutorForm(instance=autor)
+    if request.method == 'POST':
+        form = AutorForm(request.POST, instance=autor)
+        if form.is_valid():
+            form.save()
+        return redirect(mostrar_autor)
+    return render(request, 'templatesApp/form_autor.html', {
+        'form':form,
+        'titulo':titulo
+    })
+
+def eliminar_autor(request, id):
+    autor = Autor.objects.get(id = id)
+    autor.delete()
+    return redirect(mostrar_autor)
+
 
 # Create your views here.

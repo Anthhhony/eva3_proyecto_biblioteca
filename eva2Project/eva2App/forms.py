@@ -1,5 +1,5 @@
 from django import forms
-from eva2App.models import Cliente, Autor
+from eva2App.models import Cliente, Autor, Libro
 
 
 class FormularioCliente(forms.Form):
@@ -18,3 +18,9 @@ class AutorForm(forms.ModelForm):
     class Meta:
         model = Autor
         fields = "__all__"
+        
+class LibroForm(forms.ModelForm):
+    class Meta:
+        model = Libro
+        fields = "__all__"
+        
