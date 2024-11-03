@@ -15,15 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from eva2App.views import registro
-from eva2App.views import agregar
-from eva2App.views import actualizar
-from eva2App.views import eliminar
+from eva2App.views import registro, agregar_cliente, actualizar_cliente, eliminar_cliente
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', registro),
-    path('agregar/', agregar),
-    path('actualizar/<int:id>', actualizar),
-    path('eliminar/<int:id>', eliminar),
+    path('agregar/', agregar_cliente, name='agregar-cliente'),
+    path('actualizar/<int:id>', actualizar_cliente, name='actualizar-cliente'),
+    path('eliminar/<int:id>', eliminar_cliente, name='eliminar-cliente'),
 ]
