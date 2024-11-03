@@ -1,5 +1,7 @@
 from django.db import models
 
+# Create your models here.
+
 class Cliente(models.Model):
     rut = models.CharField(max_length=12)
     nombre = models.CharField(max_length=30)
@@ -12,4 +14,3 @@ class Autor(models.Model):
     apellido = models.CharField(max_length=20)
     correo = models.CharField(max_length=50)
 
-# Create your models here.

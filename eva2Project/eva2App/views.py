@@ -1,17 +1,17 @@
 from django.shortcuts import render, redirect
 from . import forms
 from eva2App.models import Cliente
-from eva2App.forms import formularioChetado
+from eva2App.forms import ClienteForm, AutorForm
 
 def registro(request):
     registro = Cliente.objects.all()
     data = {"registro":registro}
     return render(request, "templatesApp/index.html", data)
 
-def agregar(request):
-    form = forms.formulario()
+def agregar_cliente(request):
+    form = ClienteForm()
     if request.method == "POST":
-        form = forms.formulario(request.POST)
+        form = ClienteForm(request.POST)
         if form.is_valid():
             db = Cliente(
                 rut = form.cleaned_data['rut'],
@@ -24,16 +24,16 @@ def agregar(request):
     data = {"form":form}
     return render(request, "templatesApp/agregar.html", data)
 
-def eliminar(request, id):
+def eliminar_cliente(request, id):
     dato = Cliente.objects.get(id = id)
     dato.delete()
     return redirect("../")
 
-def actualizar(request, id):
+def actualizar_cliente(request, id):
     project = Cliente.objects.get(id = id)
-    form = formularioChetado(instance=project)
+    form = ClienteForm(instance=project)
     if request.method == "POST":
-        form = formularioChetado(request.POST, instance=project)
+        form = ClienteForm(request.POST, instance=project)
         if form.is_valid():
             form.save()
         return registro(request)
