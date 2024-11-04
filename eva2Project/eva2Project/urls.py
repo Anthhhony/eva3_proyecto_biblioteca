@@ -15,16 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from eva2App.views import registro, agregar_cliente, actualizar_cliente, eliminar_cliente, mostrar_autor, agregar_autor, eliminar_autor, actualizar_autor
+from eva2App.views import registro, agregar_cliente, actualizar_cliente, eliminar_cliente, mostrar_autor, agregar_autor, eliminar_autor, actualizar_autor, menu, mostrar_libros, agregar_libro, actualizar_libro, eliminar_libro
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', registro, name='lista-clientes'),
+    path('', menu),
+    path('registroCLientes/', registro, name='lista-clientes'),
     path('agregar/', agregar_cliente, name='agregar-cliente'),
     path('actualizar/<int:id>', actualizar_cliente, name='actualizar-cliente'),
     path('eliminar/<int:id>', eliminar_cliente, name='eliminar-cliente'),
     path('autores/', mostrar_autor, name='lista-autores'),
     path('agregarAutor/', agregar_autor, name='agregar-autores'),
     path('actualizarAutor/<int:id>', actualizar_autor, name='actualizar-autores'),
-    path('eliminarAutor/<int:id>', eliminar_autor, name='eliminar-autores')
+    path('eliminarAutor/<int:id>', eliminar_autor, name='eliminar-autores'),
+    path('vistaLibro/', mostrar_libros, name='lista-autores'),
+    path('registroLibro/', agregar_libro, name='agregar-autores'),
+    path('actualizarLibro/<int:id>', actualizar_libro, name='actualizar-autores'),
+    path('eliminarLibro/<int:id>', eliminar_libro, name='eliminar-autores'),
 ]

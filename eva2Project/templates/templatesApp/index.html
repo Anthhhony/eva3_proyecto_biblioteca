@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-    <div class="BIGBOX"><h1>TODOS LO REGISTROS:</h1></div>
+    
 
     {% if registro %}
+    <div class="TitleHead"><h1>TODOS LO REGISTROS:</h1></div>
 
     <table>
         <thead>
@@ -45,7 +46,7 @@
 
     {% else %}
 
-    <div><h1>NO HAY REGISTROS</h1></div>
+    <div class="TitleHead"><h1>NO HAY REGISTROS</h1></div>
     <a href="../agregar"><button>REGISTRAR</button></a>
 
     {% endif %}

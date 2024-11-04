@@ -1,0 +1,13 @@
+.TitleMenu{
+    text-align: center;
+    background-color: aquamarine;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 30px;
+}
+#divOption{
+    cursor: pointer; 
+    background-color: rgb(233, 233, 233); 
+    margin: 5px; padding: 15px; 
+    text-align: center;
+    font-size: 40px;
+}

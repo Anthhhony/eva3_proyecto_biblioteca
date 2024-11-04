@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    
+
+    {% if libro %}
+
+    <div class="TitleHead"><h1>TODOS LO REGISTROS:</h1></div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>CODIGO</th>
+                <th>TITULO</th>
+                <th>GENERO</th>
+                <th>EDITORIAL</th>
+                <th>PRECIO</th>
+                <th>N PAGINAS</th>
+                <th>STOCK</th>
+                <th>AUTOR</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for dato in libro %}
+
+            <tr>
+                <td>{{dato.codigo}}</td>
+                <td>{{dato.titulo}}</td>
+                <td>{{dato.genero}}</td>
+                <td>{{dato.editorial}}</td>
+                <td>{{dato.precio}}</td>
+                <td>{{dato.n_paginas}}</td>
+                <td>{{dato.stock}}</td>
+                <td>{{dato.autor}}</td>
+                <td><a href="actualizar/{{dato.id}}">ACTUALIZAR</a></td>
+                <td><a href="/eliminar/{{dato.id}}">ELIMINAR</a></td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <a href="../registroLibro"><button>REGISTRAR LIBRO</button></a>
+
+    {% else %}
+
+    <div><h1>NO HAY REGISTROS</h1></div>
+    <a href="../registroLibro"><button>REGISTRAR LIBRO</button></a>
+
+    {% endif %}
+
+</body>
+</html>

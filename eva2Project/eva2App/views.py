@@ -3,6 +3,9 @@ from . import forms
 from eva2App.models import Cliente, Autor, Libro
 from eva2App.forms import ClienteForm, AutorForm
 
+def menu(request):
+    return render(request, "templatesApp/menu.html")
+
 def registro(request):
     registro = Cliente.objects.all()
     data = {"registro":registro}
