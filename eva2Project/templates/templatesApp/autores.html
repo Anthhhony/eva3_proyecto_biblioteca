@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autores</title>
+</head>
+<body>
+    <div><h1>Autores registrados en el sistema</h1></div>
+    {% if autores %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for autor in autores %}
+            <tr>
+                <td>{{ autor.nombre }}</td>
+                <td>{{ autor.apellido }}</td>
+                <td>{{ autor.correo }}</td>
+                <td><a href="{%url 'actualizar-autores' id=autor.id %}">EDITAR</a></td>
+                <td><a href="{% url 'eliminar-autores' id=autor.id %}">ELIMINAR</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div>
+        <strong>No hay autores registrados en el sistema</strong>
+    </div>
+    {% endif %}
+    <a href="{%url 'agregar-autores' %}">AGREGAR UN AUTOR</a>
+    <a href="{%url 'lista-clientes' %}">Ir a Clientes</a>
+</body>
+</html>

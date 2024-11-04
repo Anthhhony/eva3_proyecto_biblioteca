@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+</head>
+<body>
+    <div><h1>{{ titulo }} AUTOR</h1></div>
+    <form method='post'>
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="AGREGAR AUTOR">
+    </form>
+
+    <a href="{%url "lista-autores" %}">VOLVER AL LISTADO</a>
+</body>
+</html>
