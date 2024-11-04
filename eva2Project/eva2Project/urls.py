@@ -19,8 +19,8 @@ from eva2App.views import registro, agregar_cliente, actualizar_cliente, elimina
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', menu),
-    path('registroCLientes/', registro, name='lista-clientes'),
+    path('', menu, name='home'),
+    path('registroClientes/', registro, name='lista-clientes'),
     path('agregar/', agregar_cliente, name='agregar-cliente'),
     path('actualizar/<int:id>', actualizar_cliente, name='actualizar-cliente'),
     path('eliminar/<int:id>', eliminar_cliente, name='eliminar-cliente'),
@@ -28,8 +28,8 @@ urlpatterns = [
     path('agregarAutor/', agregar_autor, name='agregar-autores'),
     path('actualizarAutor/<int:id>', actualizar_autor, name='actualizar-autores'),
     path('eliminarAutor/<int:id>', eliminar_autor, name='eliminar-autores'),
-    path('vistaLibro/', mostrar_libros, name='lista-autores'),
-    path('registroLibro/', agregar_libro, name='agregar-autores'),
-    path('actualizarLibro/<int:id>', actualizar_libro, name='actualizar-autores'),
-    path('eliminarLibro/<int:id>', eliminar_libro, name='eliminar-autores'),
+    path('vistaLibro/', mostrar_libros, name='lista-libros'),
+    path('registroLibro/', agregar_libro, name='agregar-libro'),
+    path('actualizarLibro/<int:id>', actualizar_libro, name='actualizar-libro'),
+    path('eliminarLibro/<int:id>', eliminar_libro, name='eliminar-libro'),
 ]

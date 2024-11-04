@@ -24,6 +24,7 @@ def agregar_cliente(request):
                 correo = form.cleaned_data['correo']
             )
             db.save()
+            return redirect(registro)
     data = {"form":form}
     return render(request, "templatesApp/agregar.html", data)
 
@@ -101,8 +102,7 @@ def agregar_libro(request):
                 editorial = form.cleaned_data['editorial'],
                 precio = form.cleaned_data['precio'],
                 n_paginas = form.cleaned_data['n_paginas'],
-                stock = form.cleaned_data['stock'],
-                autor = form.cleaned_data['autor']
+                stock = form.cleaned_data['stock']
             )
             db.save()
         return redirect(mostrar_libros)

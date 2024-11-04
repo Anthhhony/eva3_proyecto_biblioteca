@@ -39,7 +39,11 @@
                 <td>{{dato.precio}}</td>
                 <td>{{dato.n_paginas}}</td>
                 <td>{{dato.stock}}</td>
-                <td>{{dato.autor}}</td>
+                <td>
+                    {%for autor in dato.autor.all()%}
+                        {{autor.nombre}}
+                    {% empty %}
+                </td>
                 <td><a href="actualizar/{{dato.id}}">ACTUALIZAR</a></td>
                 <td><a href="/eliminar/{{dato.id}}">ELIMINAR</a></td>
             </tr>

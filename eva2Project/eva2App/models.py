@@ -14,6 +14,7 @@ class Libro(models.Model):
     codigo = models.CharField(max_length=13, unique=True)
     titulo = models.CharField(max_length=100)
     genero = models.CharField(max_length=100)
+    autor = models.ManyToManyField(Autor, related_name='libros')
     editorial = models.CharField(max_length=100)
     precio = models.DecimalField(
         max_digits=10,
@@ -26,7 +27,11 @@ class Libro(models.Model):
     stock = models.IntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(1000)]
     )
-    autor = models.ManyToManyField(Autor, related_name='libros')
+    
+    
+    def mostrar_autores(self):
+        return ", ".join([a.nombre for a in self.autor.all()])
+    mostrar_autores.short_description = 'Autores'
 
 class Cliente(models.Model):
     rut = models.CharField(

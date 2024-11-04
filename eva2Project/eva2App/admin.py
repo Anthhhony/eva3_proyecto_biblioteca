@@ -5,7 +5,7 @@ from eva2App.models import Libro, Autor, Cliente
 # Register your models here.
 @admin.register(Libro)
 class LibroAdmin(admin.ModelAdmin):
-    list_display = ('codigo', 'titulo', 'genero', 'editorial', 'precio', 'n_paginas', 'stock')
+    list_display = ('codigo', 'titulo', 'genero', 'editorial', 'precio', 'n_paginas', 'stock', 'mostrar_autores')
     search_fields = ('titulo', 'autor')
 
 @admin.register(Autor)

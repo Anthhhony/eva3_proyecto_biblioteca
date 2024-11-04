@@ -14,7 +14,7 @@
         <div class="row" style="margin-left: 15%;" >
             
                 <div class="col-md-3 service" id="divOption" >
-                    <a href="../agregar">
+                    <a href="{%url "lista-clientes"%}">
                         <i class="bi bi-file"></i>
                         <h5>Clientes</h5>
                     </a>
@@ -22,7 +22,7 @@
             </div>
             
                 <div class="col-md-3 service" id="divOption" >
-                    <a href="../index">
+                    <a href="{%url "agregar-cliente" %}">
                         <i class="bi bi-bookmark"></i>
                         <h5>Agregar clientes</h5>
                     </a>
@@ -31,28 +31,28 @@
             
             
             <div class="col-md-3 service" id="divOption">
-                <a href="../vistaLibros">
+                <a href="{%url "lista-libros" %}">
                     <i class="bi bi-journals"></i>
                     <h5>Libros</h5>
                 </a>
             </div>
 
             <div class="col-md-3 service" id="divOption" >
-                <a href="../registroLibro">
+                <a href="{%url "agregar-libro" %}">
                     <i class="bi bi-journal-plus"></i>
                     <h5>Agregar Libro</h5>
                 </a>
             </div>
 
             <div class="col-md-3 service" id="divOption" >
-                <a href="../autores">
+                <a href="{%url "lista-autores" %}">
                     <i class="bi bi-journal-plus"></i>
                     <h5>Autores</h5>
                 </a>
             </div>
 
             <div class="col-md-3 service" id="divOption" >
-                <a href="../form_autor">
+                <a href="{%url "agregar-autores" %}">
                     <i class="bi bi-journal-plus"></i>
                     <h5>Agregar Autor</h5>
                 </a>
