@@ -27,7 +27,7 @@ def agregar_cliente(request):
 def eliminar_cliente(request, id):
     dato = Cliente.objects.get(id = id)
     dato.delete()
-    return redirect("../")
+    return redirect(registro)
 
 def actualizar_cliente(request, id):
     project = Cliente.objects.get(id = id)
