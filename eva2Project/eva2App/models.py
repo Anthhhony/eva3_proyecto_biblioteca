@@ -10,6 +10,9 @@ class Autor(models.Model):
         validators=[EmailValidator('El correo ingresado no es válido, compruebe el ejemplo: correoejemplo@gmail.com')]
     )
 
+    def __str__(self):
+        return self.nombre + ' ' + self.apellido
+
 class Libro(models.Model):
     codigo = models.CharField(max_length=13, unique=True)
     titulo = models.CharField(max_length=100)
@@ -28,10 +31,13 @@ class Libro(models.Model):
         validators=[MinValueValidator(0), MaxValueValidator(1000)]
     )
     
+    def __str__(self):
+        return self.titulo
+    
     
     def mostrar_autores(self):
         return ", ".join([a.nombre for a in self.autor.all()])
-    mostrar_autores.short_description = 'Autores'
+    mostrar_autores.short_description = 'Autor'
 
 class Cliente(models.Model):
     rut = models.CharField(

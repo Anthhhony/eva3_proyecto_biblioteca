@@ -28,6 +28,28 @@ def agregar_cliente(request):
     data = {"form":form}
     return render(request, "templatesApp/agregar.html", data)
 
+def agregar_libro(request):
+    titulo = 'Agregar'
+    form = LibroForm()
+    if request.method == 'POST':
+        form = LibroForm(request.POST)
+        if form.is_valid():
+            db = Libro(
+                codigo = form.cleaned_data['codigo'],
+                titulo = form.cleaned_data['titulo'],
+                genero = form.cleaned_data['genero'],
+                editorial = form.cleaned_data['editorial'],
+                precio = form.cleaned_data['precio'],
+                n_paginas = form.cleaned_data['n_paginas'],
+                stock = form.cleaned_data['stock']
+            )
+            db.save()
+            return redirect(mostrar_libros)
+    return render(request, 'templatesApp/registroLibro.html', {
+        'form':form,
+        'titulo':titulo
+    })
+
 def eliminar_cliente(request, id):
     dato = Cliente.objects.get(id = id)
     dato.delete()
@@ -89,27 +111,7 @@ def mostrar_libros(request):
     libro = Libro.objects.all()
     return render(request, 'templatesApp/vistaLibros.html', {'libro':libro})
 
-def agregar_libro(request):
-    titulo = 'Agregar'
-    form = LibroForm()
-    if request.method == 'POST':
-        form = LibroForm(request.POST)
-        if form.is_valid():
-            db = Libro(
-                codigo = form.cleaned_data['codigo'],
-                titulo = form.cleaned_data['titulo'],
-                genero = form.cleaned_data['genero'],
-                editorial = form.cleaned_data['editorial'],
-                precio = form.cleaned_data['precio'],
-                n_paginas = form.cleaned_data['n_paginas'],
-                stock = form.cleaned_data['stock']
-            )
-            db.save()
-        return redirect(mostrar_libros)
-    return render(request, 'templatesApp/registroLibro.html', {
-        'form':form,
-        'titulo':titulo
-    })
+
 
 def actualizar_libro(request, id):
     titulo = 'Editar'
