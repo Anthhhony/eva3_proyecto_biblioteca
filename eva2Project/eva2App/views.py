@@ -29,7 +29,7 @@ def agregar_cliente(request):
     return render(request, "templatesApp/agregar.html", data)
 
 def agregar_libro(request):
-    titulo = 'Agregar'
+    titulo = 'AGREGAR'
     form = LibroForm()
     if request.method == 'POST':
         form = LibroForm(request.POST)

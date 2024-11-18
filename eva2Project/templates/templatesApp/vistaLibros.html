@@ -15,8 +15,8 @@
 
     <div class="TitleHead"><h1>TODOS LO REGISTROS:</h1></div>
 
-    <table>
-        <thead>
+    <table class="table table-stripped table-hover">
+        <thead class="table-dark">
             <tr>
                 <th>CODIGO</th>
                 <th>TITULO</th>
@@ -26,6 +26,7 @@
                 <th>N PAGINAS</th>
                 <th>STOCK</th>
                 <th>AUTOR</th>
+                <th>ACCIONES</th>
             </tr>
         </thead>
 
@@ -49,8 +50,10 @@
                         Agregado sin autor
                     {% endfor %}
                 </td>
-                <td><a href="{%url 'actualizar-libro' id=dato.id %}">ACTUALIZAR</a></td>
-                <td><a href="{%url 'eliminar-libro' id=dato.id %}">ELIMINAR</a></td>
+                <td>
+                    <a href="{%url 'actualizar-libro' id=dato.id %}" class="btn btn-warning">ACTUALIZAR</a> 
+                    <a href="{%url 'eliminar-libro' id=dato.id %}" class="btn btn-danger">ELIMINAR</a>
+                </td>
             </tr>
 
             {% endfor %}
@@ -58,7 +61,8 @@
         </tbody>
     </table>
 
-    <a href="../registroLibro"><button>REGISTRAR LIBRO</button></a>
+    <a href="../registroLibro"><button class="btn btn-primary">REGISTRAR LIBRO</button></a>
+    <br>
 
     {% else %}
 
