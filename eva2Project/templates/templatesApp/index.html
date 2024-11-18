@@ -38,8 +38,8 @@
                 <td>{{dato.edad}}</td>
                 <td>{{dato.correo}}</td>
                 <td>
-                    <a href="actualizar/{{dato.id}}" class="btn btn-warning">ACTUALIZAR</a>
-                    <a href="/eliminar/{{dato.id}}" class="btn btn-danger">ELIMINAR</a>
+                    <a href="{%url 'actualizar-cliente' id=dato.id %}" class="btn btn-warning">ACTUALIZAR</a>
+                    <a href="{%url 'eliminar-cliente' id=dato.id %}" class="btn btn-danger">ELIMINAR</a>
                 </td>
             </tr>
 
