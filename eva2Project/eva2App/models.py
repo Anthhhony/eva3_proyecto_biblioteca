@@ -47,8 +47,8 @@ class Cliente(models.Model):
     )
     nombre = models.CharField(max_length=30)
     telefono = models.CharField(
-        max_length=11,
-        validators=[RegexValidator(regex=r'^\d{9,10}$', message='Ingrese un número de teléfono adecuado (ejemplo: +56912345678)')]
+        max_length=9,
+        validators=[RegexValidator(regex=r'^\d{9,10}$', message='Ingrese un número de teléfono adecuado (ejemplo: 123456789)')]
     )
     edad = models.CharField(
         max_length=3,
