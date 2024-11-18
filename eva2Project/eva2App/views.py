@@ -16,14 +16,8 @@ def agregar_cliente(request):
     if request.method == "POST":
         form = ClienteForm(request.POST)
         if form.is_valid():
-            db = Cliente(
-                rut = form.cleaned_data['rut'],
-                nombre = form.cleaned_data['nombre'],
-                telefono = form.cleaned_data['telefono'],
-                edad = form.cleaned_data['edad'],
-                correo = form.cleaned_data['correo']
-            )
-            db.save()
+            
+            form.save()
             return redirect(registro)
     data = {"form":form}
     return render(request, "templatesApp/agregar.html", data)
@@ -34,16 +28,7 @@ def agregar_libro(request):
     if request.method == 'POST':
         form = LibroForm(request.POST)
         if form.is_valid():
-            db = Libro(
-                codigo = form.cleaned_data['codigo'],
-                titulo = form.cleaned_data['titulo'],
-                genero = form.cleaned_data['genero'],
-                editorial = form.cleaned_data['editorial'],
-                precio = form.cleaned_data['precio'],
-                n_paginas = form.cleaned_data['n_paginas'],
-                stock = form.cleaned_data['stock']
-            )
-            db.save()
+            form.save()
             return redirect(mostrar_libros)
     return render(request, 'templatesApp/registroLibro.html', {
         'form':form,
