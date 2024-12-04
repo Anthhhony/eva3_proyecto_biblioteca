@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Letter Effect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .glow-container {
+            display: flex;
+            gap: 5px;
+        }
+
+        .glow-letter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 5px #ff9a9e, 0 0 10px #fad0c4, 0 0 15px #fbc2eb, 0 0 20px #ff9a9e;
+            transition: text-shadow 0.3s ease-in-out;
+        }
+
+        .glow-letter:hover {
+            text-shadow: 0 0 10px #ff9a9e, 0 0 20px #fad0c4, 0 0 30px #fbc2eb, 0 0 40px #ff9a9e;
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-container" id="glowContainer"></div>
+
+    <script>
+        const text = "GLOW EFFECT";
+        const container = document.getElementById('glowContainer');
+
+        text.split('').forEach(letter => {
+            const span = document.createElement('span');
+            span.className = 'glow-letter';
+            span.textContent = letter;
+            container.appendChild(span);
+        });
+    </script>
+</body>
+</html>
