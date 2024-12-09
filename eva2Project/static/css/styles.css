@@ -479,3 +479,69 @@ a.regresar {
     }
 }
 
+/* Título animado con borde redondeado */
+.form-container {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 2rem;
+    font-weight: 500rem;
+    color: #4285F4;
+    margin-top: 20vh;
+    margin-left: 60vh;
+    opacity: 0;
+    animation: slide-in-form 4s ease forwards, draw-border 4s ease forwards;
+    animation-delay: 2s, 2s;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #4285F4;
+    border-radius: 10px;
+    transition: width 2s ease;
+    box-shadow: 0 0 10px rgba(66, 133, 244, 0.7); /* Destello */
+}
+
+form {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: fade-in-form 2s ease forwards;
+    animation-delay: 2s;
+}
+
+@keyframes slide-in-form {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes draw-border {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes fade-in-form {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
