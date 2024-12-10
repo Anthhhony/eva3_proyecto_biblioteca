@@ -1,13 +1,260 @@
-.TitleMenu{
-    text-align: center;
-    background-color: aquamarine;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 30px;
+
+/* Estilos globales */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(to bottom, #fff, #f0f0f0);
+    overflow: hidden;
 }
-#divOption{
-    cursor: pointer; 
-    background-color: rgb(233, 233, 233); 
-    margin: 5px; padding: 15px; 
-    text-align: center;
-    font-size: 50px;
+
+body a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Contenedor de animación inicial */
+.animation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation: fade-out-book 1s ease forwards;
+    animation-delay: 2s;
+}
+
+@keyframes fade-out-book {
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+        pointer-events: none;
+    }
+}
+
+.book {
+    position: relative;
+    width: 300px;
+    height: 320px;
+    transform-style: preserve-3d;
+    animation: open-book 2s ease forwards;
+}
+
+.cover {
+    position: absolute;
+    width: 300px;
+    height: 320px;
+    background: #EA4335;
+    backface-visibility: hidden;
+}
+
+.cover.front {
+    transform: rotateY(0deg);
+}
+
+.cover.back {
+    transform: rotateY(180deg);
+    background: #4285F4;
+}
+
+.pages {
+    position: absolute;
+    width: 300px;
+    height: 320px;
+    background: #fff;
+    transform: rotateY(90deg);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes open-book {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Título animado con borde redondeado */
+.title-container {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #4285F4;
+    margin-top: -20vh;
+    opacity: 0;
+    animation: slide-in-title 2s ease forwards, draw-border 2s ease forwards;
+    animation-delay: 2s, 2s;
+}
+
+.title-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #4285F4;
+    border-radius: 10px;
+    transition: width 2s ease;
+    box-shadow: 0 0 10px rgba(66, 133, 244, 0.7); /* Destello */
+}
+
+.title {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: fade-in-title 2s ease forwards;
+    animation-delay: 2s;
+}
+
+.card {
+    width: 500px;
+    height: 254px;
+    background: #FFFFFF;
+    position: relative;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.card h2 {
+    z-index: 1;
+    color: #4285F4;
+    font-size: 2rem;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+    height: 130%;
+    animation: rotBGimg 8s linear infinite;
+    transition: all 0.2s linear;
+}
+
+@keyframes slide-in-title {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes draw-border {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes fade-in-title {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rotBGimg {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    background: #FFFFFF;
+    inset: 5px;
+    border-radius: 15px;
+}
+
+/* Botones estilizados */
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    opacity: 0;
+    animation: fade-in-buttons 1.5s ease forwards;
+    animation-delay: 4s;
+}
+
+@keyframes fade-in-buttons {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.button:hover {
+    border-color: #4285F4;
+    color: #4285F4;
+}
+
+.button .material-icons {
+    font-size: 20px;
+    margin-right: 8px;
+    color: #4285F4;
+    transition: color 0.3s ease;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #4285F4, #4285F4, #4285F4, #4285F4);
+    transition: width 0.3s ease;
+}
+
+.button:hover::before{
+    width: 100%;
 }

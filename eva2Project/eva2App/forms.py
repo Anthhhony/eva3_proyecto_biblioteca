@@ -24,3 +24,8 @@ class LibroForm(forms.ModelForm):
         model = Libro
         fields = "__all__"
         
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.attrs = {
+                'class':'form-container'
+            }        
