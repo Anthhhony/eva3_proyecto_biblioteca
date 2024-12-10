@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'eva2App'
+    'apiEva4App'
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

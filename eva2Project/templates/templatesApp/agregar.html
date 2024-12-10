@@ -9,12 +9,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
-    <div class="TitleHead md-5"><h1>AGREGAR CLIENTE:</h1></div>
-    <form method="POST">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <input type="submit" value="ENVIAR" class="btn btn-primary">
-    </form>
+    <div class="animation-container">
+        <div class="book">
+            <div class="cover front"></div>
+            <div class="pages"></div>
+            <div class="cover back"></div>
+        </div>
+    </div>
+    <div class="title title-container card">
+        <h2>Registrar Libros</h2>
+    </div>
+
+    <div class="form-container">
+        <form method="POST">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="submit" value="ENVIAR" class="btn btn-primary">
+        </form>
+    </div>
+    
     <br>
     <a href="../" class="btn btn-secondary">VOLVER</a>
 </body>

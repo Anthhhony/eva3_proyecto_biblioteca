@@ -16,17 +16,17 @@ function animateText(inputElement) {
     console.log(animatedText)
 }
 
-function placeCaretAtEnd(element) {
-    element.focus();
-    if (typeof window.getSelection !== "undefined"
-        && typeof document.createRange !== "undefined") {
-        const range = document.createRange();
-        range.selectNodeContents(element);
-        range.collapse(false);
-        const selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-    }
-}
+// function placeCaretAtEnd(element) {
+//     element.focus();
+//     if (typeof window.getSelection !== "undefined"
+//         && typeof document.createRange !== "undefined") {
+//         const range = document.createRange();
+//         range.selectNodeContents(element);
+//         range.collapse(false);
+//         const selection = window.getSelection();
+//         selection.removeAllRanges();
+//         selection.addRange(range);
+//     }
+// }
 
 

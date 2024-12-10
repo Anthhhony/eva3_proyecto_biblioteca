@@ -13,50 +13,64 @@
     
 
     {% if registro %}
-    <div class="TitleHead md-5"><h1>TODOS LO REGISTROS:</h1></div>
+    <div class="animation-container">
+        <div class="book">
+            <div class="cover front"></div>
+            <div class="pages"></div>
+            <div class="cover back"></div>
+        </div>
+    </div>
+    <div class="title title-container card">
+        <h2>Clientes</h2>
+    </div>
 
-    <table class="table table-stripped table-hover">
-        <thead class="table-dark">
-            <tr>
-                <th>RUT</th>
-                <th>NOMBRE</th>
-                <th>TELEFONO</th>
-                <th>EDAD</th>
-                <th>CORREO</th>
-                <th>ACCIONES</th>
-            </tr>
-        </thead>
+    <div class="table-wrapper">
+        <table class="animated-table">
+            <thead >
+                <tr>
+                    <th>RUT</th>
+                    <th>NOMBRE</th>
+                    <th>TELEFONO</th>
+                    <th>EDAD</th>
+                    <th>CORREO</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+    
+                {% for dato in registro %}
+    
+                <tr>
+                    <td>{{dato.rut}}</td>
+                    <td>{{dato.nombre}}</td>
+                    <td>{{dato.telefono}}</td>
+                    <td>{{dato.edad}}</td>
+                    <td>{{dato.correo}}</td>
+                    <td>
+                        <a href="{%url 'actualizar-cliente' id=dato.id %}" class="btn btn-warning">ACTUALIZAR</a>
+                        <a href="{%url 'eliminar-cliente' id=dato.id %}" class="btn btn-danger">ELIMINAR</a>
+                    </td>
+                </tr>
+    
+                {% endfor %}
+    
+            </tbody>
+        </table>
+    </div>
+    
+    
 
-        <tbody>
-
-            {% for dato in registro %}
-
-            <tr>
-                <td>{{dato.rut}}</td>
-                <td>{{dato.nombre}}</td>
-                <td>{{dato.telefono}}</td>
-                <td>{{dato.edad}}</td>
-                <td>{{dato.correo}}</td>
-                <td>
-                    <a href="{%url 'actualizar-cliente' id=dato.id %}" class="btn btn-warning">ACTUALIZAR</a>
-                    <a href="{%url 'eliminar-cliente' id=dato.id %}" class="btn btn-danger">ELIMINAR</a>
-                </td>
-            </tr>
-
-            {% endfor %}
-
-        </tbody>
-    </table>
-
-    <a href="{%url 'agregar-cliente' %}" class="btn btn-primary" style="width: 200px;">REGISTRAR</a>
-
+    <a href="{%url 'agregar-cliente' %}"><button class="btn btn-primary registrar glow-button" id="btnRegistrar">REGISTRAR LIBRO</button></a>
+    <br>
     {% else %}
 
     <div class="TitleHead"><h1>NO HAY REGISTROS</h1></div>
     <a href="{%url 'agregar-cliente' %}" class="btn btn-primary">REGISTRAR</a>
 
     {% endif %}
-    <a href="{%url 'home' %}" class="btn btn-secondary" style="width: 200px;">VOLVER</a>
+    <br>
+    <a href="{%url 'home' %}" class="btn btn-secondary regresar" id="btnVolver">VOLVER</a>
 
 </body>
 </html>

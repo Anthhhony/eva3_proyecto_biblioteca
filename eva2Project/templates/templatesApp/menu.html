@@ -28,24 +28,50 @@
     <!-- Botones de navegación -->
     <div class="buttons-container">
         <!-- Botones de libros -->
-        <a href="{%url "lista-libros" %}">
+        <a href="{%url 'lista-libros' %}">
             <div class="button">
                 <span class="material-icons">book</span>
                 Listado de Libros
             </div>
         </a>
+        <a href="{%url 'agregar-libro' %}">
         <div class="button">
             <span class="material-icons">add</span>
             Agregar Libros
         </div>
+        </a>
 
         <!-- Botones de clientes -->
-        <div class="button"><span class="material-icons">people</span>Listado de Clientes</div>
-        <div class="button"><span class="material-icons">person_add</span>Agregar Clientes</div>
+        <a href="{%url 'lista-clientes' %}">
+            <div class="button">
+                <span class="material-icons">people</span>
+                Listado de Clientes
+            </div>
+        </a>
+
+        <a href="{%url 'agregar-cliente' %}">
+            <div class="button">
+                <span class="material-icons">person_add</span>
+                Agregar Clientes
+            </div>
+        </a>
+        
 
         <!-- Botones de autores -->
-        <div class="button"><span class="material-icons">edit</span>Listado de Autores</div>
-        <div class="button"><span class="material-icons">person</span>Agregar Autores</div>
+        <a href="{%url "lista-autores" %}">
+            <div class="button">
+                <span class="material-icons">edit</span>
+                Listado de Autores
+            </div>
+        </a>
+
+        <a href="{%url "agregar-autores" %}">
+            <div class="button">
+                <span class="material-icons">person</span>
+                Agregar Autores
+            </div>
+        </a>
+        
 
         <!-- Botón API REST -->
         <div class="button"><span class="material-icons">book</span>API implement</div>
