@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from eva2App.views import registro, agregar_cliente, actualizar_cliente, eliminar_cliente, mostrar_autor, agregar_autor, eliminar_autor, actualizar_autor, menu, mostrar_libros, agregar_libro, actualizar_libro, eliminar_libro
 
 urlpatterns = [
@@ -32,4 +32,5 @@ urlpatterns = [
     path('registroLibro/', agregar_libro, name='agregar-libro'),
     path('actualizarLibro/<int:id>', actualizar_libro, name='actualizar-libro'),
     path('eliminarLibro/<int:id>', eliminar_libro, name='eliminar-libro'),
+    path('apiEva4App/v1/', include('apiEva4App.urls')),
 ]

@@ -82,6 +82,8 @@ body a {
     }
 }
 
+/* CONTENEDOR DEL MENU */
+
 /* Título animado con borde redondeado */
 .title-container {
     position: relative;
@@ -193,14 +195,23 @@ body a {
     border-radius: 15px;
 }
 
+/* Titulo de la API */
+
 /* Botones estilizados */
 .buttons-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    opacity: 0;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 40px;
+    width: 100%;
+    max-width: 800px;
+    opacity: 1;
     animation: fade-in-buttons 1.5s ease forwards;
     animation-delay: 4s;
+}
+
+.btnApi {
+    grid-row-start: 4;
 }
 
 @keyframes fade-in-buttons {
