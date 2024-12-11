@@ -200,12 +200,12 @@ body a {
 /* Botones estilizados */
 .buttons-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    gap: 40px;
+    gap: 20px;
     width: 100%;
     max-width: 800px;
-    opacity: 1;
+    opacity: 0;
     animation: fade-in-buttons 1.5s ease forwards;
     animation-delay: 4s;
 }

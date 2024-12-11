@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from . import forms
 from eva2App.models import Cliente, Autor, Libro
 from eva2App.forms import ClienteForm, AutorForm, LibroForm
+from django.db.models import Q
 
 def menu(request):
     return render(request, "templatesApp/menu.html")
